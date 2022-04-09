@@ -34,8 +34,9 @@ export const getNextActionCreator = () => async (dispatch) => {
   };
 };
 
-export const setSceneActionCreator = () => {
+export const setSceneActionCreator = (data) => {
   return {
     type: types.SET_SCENE,
+    payload: data,
   };
 };
