@@ -1,0 +1,26 @@
+const apiSearch = require('../api');
+
+//console.log(res.jsonBody.businesses)
+
+const apiController = {
+
+  async storeRest(req, res, next) {
+    //const { firstName, lastName, age } = req.body;
+    try {
+      //const student = await Student.create({firstName, lastName, age});
+      res.locals.restaurants = req.jsonBody.businesses;
+      return next();
+    }
+    catch (error) {
+      return next({
+        log: `Error caught in apiController.storeRest middleware ${error}`,
+        message: {
+          error: 'apiController.storeRest ERROR: Check server logs for details',
+        },
+      });
+    } 
+  }
+};
+
+ 
+module.exports = apiController;
