@@ -1,20 +1,26 @@
 
 import React, { component } from 'react';
 import MainContainer from './Containers/MainContainer.jsx';
+import DropDown from './Components/Dropdown.jsx';
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-    }
 
-    render() {
-        return (
-          <div>
-              <MainContainer />
-          </div>
-        )
-    };
+const App = () => {
+    return (
+        <div>
+            <MainContainer />
+        </div>
+    )
 
 };
 
 export default App;
+
+
+
+
+/*
+class App extends Component {
+    constructor(props) {
+        super(props);
+    }
+*/

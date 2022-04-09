@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import HeaderContainer from '../Components/HeaderContainer.jsx';
+import DropDown from '../Components/Dropdown.jsx';
+
+// const mapStateToProps = {
 
 
-const mapStateToProps = {
-
-
-};
+// };
 
 class MainContainer extends Component {
 
@@ -13,11 +14,13 @@ class MainContainer extends Component {
 
         return (
             <div className="outerBox">
-                
-
+                <HeaderContainer />
+                <DropDown />
             </div>
         )
 
     }
 
 }
+
+export default MainContainer;
