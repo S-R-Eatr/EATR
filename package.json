@@ -17,7 +17,6 @@
     "@babel/core": "^7.17.8",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
-    "@hot-loader/react-dom": "^17.0.2",
     "autoprefixer": "^10.4.4",
     "babel-loader": "^8.2.4",
     "css-loader": "^6.7.1",
@@ -33,11 +32,8 @@
   },
   "dependencies": {
     "express": "^4.17.3",
-    "mongodb": "^4.5.0",
-    "mongoose": "^6.2.10",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-hot-loader": "^4.13.0",
     "react-router-dom": "^6.3.0"
   }
 }

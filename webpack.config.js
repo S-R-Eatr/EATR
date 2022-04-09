@@ -1,44 +1,21 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const config = {
-  entry: [
-    './src/index.js'
-  ],
+  entry: ['./client/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         use: 'babel-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1
-            }
-          },
-          'postcss-loader'
-        ],
-        exclude: /\.module\.css$/
-      },
-      {
-        test: /\.mp4$/,
-        use: [
-            {
-                loader: "file-loader",
-            }
-        ]
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -48,16 +25,30 @@ const config = {
             loader: 'css-loader',
             options: {
               importLoaders: 1,
-              modules: true
-            }
+            },
           },
-          'postcss-loader'
+          'postcss-loader',
         ],
-        include: /\.module\.css$/
+        exclude: /\.module\.css$/,
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true,
+            },
+          },
+          'postcss-loader',
+        ],
+        include: /\.module\.css$/,
       },
       {
         test: /\.svg$/,
-        use: 'file-loader'
+        use: 'file-loader',
       },
       {
         test: /\.png$/,
@@ -65,24 +56,28 @@ const config = {
           {
             loader: 'file-loader',
             options: {
-              mimetype: 'image/png'
-            }
-          }
-        ]
-      }
-    ]
+              mimetype: 'image/png',
+            },
+          },
+        ],
+      },
+    ],
   },
   devServer: {
-    'static': {
-      directory: './dist'
-    }
+    static: {
+      directory: './dist',
+    },
   },
   plugins: [
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       openAnalyzer: false,
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Development',
+      template: 'client/index.html'
     })
-  ]
+  ],
 };
 
 module.exports = config;
