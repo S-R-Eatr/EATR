@@ -5,7 +5,7 @@ import reducers from './Reducers/index';
 
 const store = createStore(
   reducers,
-  composeWithDevTools(),
+  undefined,
   applyMiddleware(thunk)
 );
 
