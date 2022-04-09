@@ -1,26 +1,43 @@
-const apiSearch = require('../api');
-
-//console.log(res.jsonBody.businesses)
+// const apiSearch = require('../api');
+const express = require('express');
+('use strict');
+const yelp = require('yelp-fusion');
+const client = yelp.client(
+  'Nf92DVhp69FI1Lj8q9X1JjZNpSCTy2zgJSQK4jnDmopSTSczsj-kYBkf-qf3oq1e-jesqK8cgrLpC-XM52eIfnxgQGvX0CwEz9QZKwcvguLID62A2WsSCe3ECqVRYnYx'
+);
 
 const apiController = {
-
-  async storeRest(req, res, next) {
-    //const { firstName, lastName, age } = req.body;
+  storeRest(req, res, next) {
+    // const { term, location } = req.body;
+    // const obj = {
+    //   term: term,
+    //   location: location,
+    //   limit: 10,
+    //   sort_by: 'best_match',
+    //   categories: 'restaurants',
+    // };
     try {
-      //const student = await Student.create({firstName, lastName, age});
-      res.locals.restaurants = req.jsonBody.businesses;
-      return next();
-    }
-    catch (error) {
+      const obj = {
+        term: 'italian',
+        location: 'Richmond,VA',
+        limit: 10,
+        sort_by: 'best_match',
+        categories: 'restaurants',
+      };
+      client.search(obj)
+        .then((response) => {
+          res.locals.restaurants = response.jsonBody.businesses;
+          return next();
+      });
+    } catch (error) {
       return next({
         log: `Error caught in apiController.storeRest middleware ${error}`,
         message: {
           error: 'apiController.storeRest ERROR: Check server logs for details',
         },
       });
-    } 
-  }
+    }
+  },
 };
 
- 
 module.exports = apiController;
