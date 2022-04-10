@@ -7,7 +7,7 @@ const FavoriteCard = () => {
   const formattedAddress = `${location['address1']} ${location['address2']}\n${location['city']}, ${location['state']} ${location['zip_code']}`;
   return(
     <article className="favorite-card">
-      {/* <img> */}
+      <img href={business.image_url} alt="restaurant's main photo"></img>
       <section className="favorites-business-info">
         <title>{business.name}</title>
         <address>
