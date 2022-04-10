@@ -12,6 +12,7 @@ const DropDown = () => {
 
     return (
         <div className="drop-down">
+            <h1>Eatr</h1>
             <form>
                 <label htmlFor="location">
                     Location  
@@ -31,10 +32,15 @@ const DropDown = () => {
                 </label>
                 <br></br>
                 <br></br>
-                <button>></button>
             </form>
         </div>
     );
 };
 
 export default DropDown;
+
+//when button is clicked
+    //Access and update redux's sceneState:
+    //Change sceneState to 'feed'
+        //Render RestaurantCard
+        //HeaderContainerForRestaurant (c has thumbs up and down buttons in it)
