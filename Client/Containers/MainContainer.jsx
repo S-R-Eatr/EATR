@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import HeaderContainer from '../Components/HeaderContainer.jsx';
 import DropDown from '../Components/Dropdown.jsx';
-import HeaderContainerFeed from '../Components/HeaderContainerFeed.jsx';
-import RestaurantCard from '../Components/RestaurantCard.jsx';
-import HomeScreen from './HomeScene.jsx';
+// import RestaurantCard from '../Components/RestaurantCard.jsx';
+import Header from '../Components/Header.jsx';
+import HomeScene from './HomeScene.jsx';
 import FeedScene from './FeedScene.jsx';
-import FavortieScene from './FavoritesScene.jsx';
+import FavoritesScene from './FavoritesScene.jsx'
 
 
 class MainContainer extends Component {
@@ -27,7 +26,9 @@ class MainContainer extends Component {
         console.log(e.target.id);
         if (this.state.scene === 'feed' && e.target.id === 'back') {this.setState({scene: 'home'})}
         else if (this.state.scene === 'feed' && e.target.id === 'favorites') {this.setState({scene: 'favorites'})}
+        else if (this.state.scene === 'favorites' && e.target.id === 'back') {this.setState({scene: 'feed'})}
         else (this.setState ({scene: 'feed'}))
+        console.log(this.state.scene);
     }
 
 
@@ -36,18 +37,50 @@ class MainContainer extends Component {
             case 'feed':
                 return (
                 <>
-                < RestaurantCard />
                 <button
                 onClick={this.handleSceneChange}
                 id='back'
                 >Back                
                 </button>
+                
+                <button
+                onClick={this.handleSceneChange}
+                id='favorites'
+                >Favorites                
+                </button>
+                
+                < FeedScene />
+
+                <button
+                // onClick={this.handleSceneChange}
+                id='thumbsup'
+                >✓                
+                </button>
+
+                <button
+                // onClick={this.handleSceneChange}
+                id='thumbsdown'
+                >X                
+                </button>
+
                 </>
                 )
+            case 'favorites':
+                return (
+                <>
+                <h3>Favorites</h3>
+                {/* < FavoritesScene /> */}
+                <button
+                onClick={this.handleSceneChange}
+                id='back'
+                >Back                
+                </button>
+                </>    
+                )    
             default:
                 return (
                 <>
-                < DropDown />
+                < HomeScene />
                 <button
                 onClick={this.handleSceneChange}
                 //onSubmit call formSubmission() -> dispatch to redux -> call handleSceneChange
@@ -63,6 +96,7 @@ class MainContainer extends Component {
 
         return (
             <div className="outerDiv">
+                < Header />
                 {this.renderSwitch()}
             </div>
         )

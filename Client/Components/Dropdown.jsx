@@ -12,7 +12,7 @@ const DropDown = () => {
 
     return (
         <div className="drop-down">
-            <h1>Eatr</h1>
+            <h3>Dropdown</h3>
             <form>
                 <label htmlFor="location">
                     Location  
