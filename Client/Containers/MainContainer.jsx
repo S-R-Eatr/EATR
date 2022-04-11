@@ -13,8 +13,8 @@ class MainContainer extends Component {
     return (
       <div className="outerBox">
         <HeaderContainer />
-        {/* <DropDown /> */}
-        <RestaurantCard />
+        <DropDown />
+        {/* <RestaurantCard /> */}
       </div>
     );
   }
