@@ -4,12 +4,6 @@ import { useState } from 'react';
 
 
 const HomeForm = (props) => {
-    // const [location, setLocation] = useState('');
-    // const locationTuple = useState('Chinese');
-    // const location = locationTuple[0];
-    // const setlocation = locationTuple[1];
-    // const [category, setCategory] = useState('');
-
     return (
         <div className="home-form">
             <form>
