@@ -41,12 +41,41 @@ const MainContainer = () => {
           </>
         );
     }
-  };
-  return (
-    <div className="outerDiv">
-      <Header onClick={handleSceneChange} />
-      {renderSwitch()}
-    </div>
-  );
-};
+    const handleFormSubmission = (e) => {
+      e.preventDefault();
+      const form = e.target.parentNode;
+      const location = form.children[2].value;
+      const category = form.children[6].value;
+      dispatch(getRestaurantsActionCreator({location: location, category: category}));
+      handleSceneChange(e);
+    }
+    const renderSwitch = () => {
+      switch(scene) {
+        case 'feed':
+          return (
+            <>
+            < FeedScene />
+            </>
+          )
+        case 'favorites':
+          return (
+            <>
+            < FavoritesScene />
+            </>
+          )
+        default:
+          return (
+            <>
+            < HomeScene onClick={handleFormSubmission}/>
+            </>
+          );
+      }
+    }
+    return (
+      <main>
+        < Header onClick={handleSceneChange}/>
+        {renderSwitch()}
+      </main>
+    )
+}
 export default MainContainer;
