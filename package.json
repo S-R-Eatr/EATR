@@ -46,7 +46,9 @@
     "react-router-dom": "^6.3.0",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.4.1"
+    "redux-thunk": "^2.4.1",
+    "yelp-fusion": "^3.0.0"
   },
   "type": "module"
+
 }
