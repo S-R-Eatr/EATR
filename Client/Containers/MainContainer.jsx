@@ -77,5 +77,6 @@ const MainContainer = () => {
         {renderSwitch()}
       </main>
     )
-}
+};
+
 export default MainContainer;
