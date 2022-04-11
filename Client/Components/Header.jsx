@@ -5,7 +5,6 @@ import {useSelector} from 'react-redux';
 const Header = (props) => {
   const scene = useSelector(store => store.setScene.sceneState);
   const hideFavorites = useSelector(store => store.favs.favsList.length < 4);
-  console.log(scene);
     switch (scene) {
       case 'feed':
         return (
