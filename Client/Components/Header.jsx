@@ -1,35 +1,43 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 
-const Header = () => {
-  const scene = useSelector(store => store.sceneState);
-  const hideFavorites = useSelector(store => store.favsList.length < 4);
-  const renderSwitch = () => {
+
+const Header = (props) => {
+  const scene = useSelector(store => store.setScene.sceneState);
+  const hideFavorites = useSelector(store => store.favs.favsList.length < 4);
+  console.log(scene);
     switch (scene) {
       case 'feed':
         return (
           <>
-          <button id="back">Back</button>
-          <title>Eatr</title>
-          <button id="favorites" disabled={hideFavorites}>Back</button>
+          <button id="back" onClick={props.onClick}>Back</button>
+          <h1>Eatr</h1>
+          <button id="favorites" disabled={hideFavorites} onClick={props.onClick}>Favorites</button>
           </>
         );
-      case 'favorites': 
+      case 'favorites':
         return (
           <>
-          <button id="back">Back</button>
-          <title>Eatr</title>
+          <button id="back" onClick={props.onClick}>Back</button>
+          <h1>Eatr</h1>
           <p>Congrats! Here are your liked options</p>
           </>
         );
       default:
         return (
-          <title>Eatr</title>
+          <h1>Eatr</h1>
         );
     }
-  }
-  return (
-    {renderSwitch}
-  );
 }
 export default Header;
+
+
+
+
+
+
+
+
+
+
+

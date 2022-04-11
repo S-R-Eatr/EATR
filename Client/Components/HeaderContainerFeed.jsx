@@ -1,9 +1,11 @@
 import React from 'react';
 
-const HeaderContainer = () => {
+const HeaderContainerFeed = () => {
     return (
-        <div className="header-container">
+        <div className="header-container-feed">
+            <button>Back</button>
             <h1>Eatr</h1>
+            <button>Favorites</button>
         </div>
         
         //conditional rendering
@@ -13,4 +15,4 @@ const HeaderContainer = () => {
     )
 }
 
-export default HeaderContainer;
+export default HeaderContainerFeed;
