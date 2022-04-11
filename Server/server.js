@@ -8,18 +8,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //Route handlers
-// app.get('/', (req, res) => {
-//   return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
-// });
-
-app.get('/restaurants', apiController.storeRest, (req, res) => {
-  return res.status(201).json(res.locals.restaurants);
+app.get('/', (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 });
 
-//Unknown Route Handler
-// app.get('/*', (req, res) => {
-//   return res.status(404).send('404 No Food Found!');
+app.get('/restaurants', apiController.storeRest, (req, res) => {
+  return res.status(201).send(res.locals);
+});
+// app.get('/restaurants', apiController.storeRest, (req, res) => {
+//   return res.status(200).json(res.locals.hours);
 // });
+
+//Unknown Route Handler
+app.get('/*', (req, res) => {
+  return res.status(404).send('404 No Food Found!');
+});
 
 //Global Error Handler
 app.use((err, req, res, next) => {
