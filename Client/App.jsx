@@ -1,11 +1,10 @@
 
 import React, { component } from 'react';
 import MainContainer from './Containers/MainContainer.jsx';
-import DropDown from './Components/Dropdown.jsx';
 
 
 const App = () => {
-    return (
+  return (
         <div>
             <MainContainer />
         </div>
@@ -14,13 +13,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-
-/*
-class App extends Component {
-    constructor(props) {
-        super(props);
-    }
-*/
