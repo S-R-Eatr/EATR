@@ -1,5 +1,5 @@
 import React from 'react';
-import FavoriteCard from './FavoriteCard';
+import FavoriteCard from './FavoriteCard.jsx';
 
 const FavoritesScene = () => {
   const favsList = useSelector(store => store.favsList);
