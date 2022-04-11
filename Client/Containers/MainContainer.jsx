@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSceneActionCreator } from '../Actions/actions.js';
+import {
+  setSceneActionCreator,
+  getRestaurantsActionCreator,
+} from '../Actions/actions.js';
 import Header from '../Components/Header.jsx';
 import HomeScene from './HomeScene.jsx';
 import FeedScene from './FeedScene.jsx';
@@ -16,6 +19,17 @@ const MainContainer = () => {
     else if (scene === 'favorites' && e.target.id === 'back')
       dispatch(setSceneActionCreator('feed'));
     else dispatch(setSceneActionCreator('feed'));
+  };
+
+  const handleFormSubmission = (e) => {
+    e.preventDefault();
+    const form = e.target.parentNode;
+    const location = form.children[2].value;
+    const category = form.children[6].value;
+    dispatch(
+      getRestaurantsActionCreator({ term: category, location: location })
+    );
+    handleSceneChange(e);
   };
   const renderSwitch = () => {
     switch (scene) {
@@ -34,49 +48,17 @@ const MainContainer = () => {
       default:
         return (
           <>
-            <HomeScene />
-            <button onClick={handleSceneChange} id="submit">
-              >>>
-            </button>
+            <HomeScene onClick={handleFormSubmission} />
           </>
         );
     }
-    const handleFormSubmission = (e) => {
-      e.preventDefault();
-      const form = e.target.parentNode;
-      const location = form.children[2].value;
-      const category = form.children[6].value;
-      dispatch(getRestaurantsActionCreator({location: location, category: category}));
-      handleSceneChange(e);
-    }
-    const renderSwitch = () => {
-      switch(scene) {
-        case 'feed':
-          return (
-            <>
-            < FeedScene />
-            </>
-          )
-        case 'favorites':
-          return (
-            <>
-            < FavoritesScene />
-            </>
-          )
-        default:
-          return (
-            <>
-            < HomeScene onClick={handleFormSubmission}/>
-            </>
-          );
-      }
-    }
-    return (
-      <main>
-        < Header onClick={handleSceneChange}/>
-        {renderSwitch()}
-      </main>
-    )
+  };
+  return (
+    <main>
+      <Header onClick={handleSceneChange} />
+      {renderSwitch()}
+    </main>
+  );
 };
 
 export default MainContainer;
