@@ -1,6 +1,8 @@
-const express = require('express');
-const path = require('path');
-const apiController = require('./controllers/apiController');
+// const express = require('express');
+// const path = require('path');
+
+import express from 'express';
+import path from 'path';
 
 const app = express();
 
@@ -12,7 +14,7 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 });
 
-app.get('/restaurants', apiController.storeRest, (req, res) => {
+app.get('/restaurants', (req, res) => {
   return res.status(200).json(res.locals.restaurants);
 });
 
