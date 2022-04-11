@@ -20,18 +20,47 @@ const FavoriteCard = () => {
   const formattedAddress = 'formattedAddress';
 
   return (
-    <article className="favorite-card">
-      <img href={business.image_url} alt="restaurant's main photo"></img>
-      <section className="favorites-business-info">
-        <title>{business.name}</title>
-        <address>
-          <p>{formattedAddress}</p>
-          {/* <br></br> */}
-          <a href={`tel:+${business.phone}`}>{formattedPhone}</a>
-        </address>
-      </section>
-    </article>
+    <Grid container spacing={2} align="center" justifyContent="center">
+      <Grid item>
+        <Card sx={{ maxWidth: 420 }} align="left">
+          <CardActionArea>
+            <CardMedia
+              className="food"
+              component="img"
+              height="340"
+              image="https://s3-media0.fl.yelpcdn.com/bphoto/eyYUz3Xl7NtcJeN7x7SQwg/258s.jpg"
+              alt="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h4" component="div" id="red">
+                {business.name}
+              </Typography>
+              <Typography variant="body" color="text.secondary" component="div">
+                Location:
+              </Typography>
+              <Typography variant="body" color="text.secondary" component="div">
+                Phone
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+      </Grid>
+    </Grid>
   );
+
+  // return (
+  //   <article className="favorite-card">
+  //     <img href={business.image_url} alt="restaurant's main photo"></img>
+  //     <section className="favorites-business-info">
+  //       <title>{business.name}</title>
+  //       <address>
+  //         <p>{formattedAddress}</p>
+  //         {/* <br></br> */}
+  //         <a href={`tel:+${business.phone}`}>{formattedPhone}</a>
+  //       </address>
+  //     </section>
+  //   </article>
+  // );
 };
 
 // const FavoriteCard = () => {

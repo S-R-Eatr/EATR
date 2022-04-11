@@ -48,8 +48,12 @@ input {
   margin-left: 20px;
 }
 
-.food {
+/* .food {
   object-fit: cover;
+} */
+
+.btn-container {
+  text-align: center;
 }
 
 .btn-restaurants {
@@ -63,8 +67,9 @@ input {
   background: #1f9b1f;
 }
 
-.btn-restaurants: hover {
-  background: red;
+.btn-restaurants:hover {
+  background: #1b831b;
+  transform: translateY(4px);
 }
 
 .btn-restaurants .desktop {
@@ -89,6 +94,8 @@ input {
     height: 5rem;
     width: 25rem;
     color: white;
+    text-align: center;
+    display: inline-block;
   }
 
   .btn-restaurants .desktop {
