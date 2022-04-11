@@ -32,6 +32,10 @@ html {
   } */
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+}
 .drop-down {
   margin-top: 5em;
 }
@@ -47,4 +51,8 @@ input {
   border-radius: 0.5rem;
   width: 20%;
   margin-left: 20px;
+}
+
+.food {
+  object-fit: cover;
 }
