@@ -1,9 +1,9 @@
 // const apiSearch = require('../api');
-const express = require('express');
+import express from 'express';
 ('use strict');
-const yelp = require('yelp-fusion');
+import yelp from 'yelp-fusion';
 const client = yelp.client(
-  'Nf92DVhp69FI1Lj8q9X1JjZNpSCTy2zgJSQK4jnDmopSTSczsj-kYBkf-qf3oq1e-jesqK8cgrLpC-XM52eIfnxgQGvX0CwEz9QZKwcvguLID62A2WsSCe3ECqVRYnYx'
+  'xKtPwI4Rj7xRNlLYekgqpwlRmgtq0dUxBeYWDsbCTQhqUnqFSRluOURoDbvvXQ3G9kLWR7c3rmmNB92Ofr8cBgpy5mk4U2WdQIKWINQFGyXWG7anfSLSenMmWEFUYnYx'
 );
 
 const apiController = {
@@ -16,9 +16,10 @@ const apiController = {
     //   sort_by: 'best_match',
     //   categories: 'restaurants',
     // };
+
     try {
       const obj = {
-        term: 'italian',
+        term: 'bagels',
         location: 'Richmond,VA',
         limit: 10,
         sort_by: 'best_match',
@@ -27,6 +28,7 @@ const apiController = {
       client.search(obj)
         .then((response) => {
           res.locals.restaurants = response.jsonBody.businesses;
+          console.log(res.locals.restaurants)
           return next();
       });
     } catch (error) {
@@ -40,4 +42,4 @@ const apiController = {
   },
 };
 
-module.exports = apiController;
+export default apiController;

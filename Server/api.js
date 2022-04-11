@@ -2,8 +2,8 @@
 
 'use strict';
 
-const yelp = require('yelp-fusion');
-const client = yelp.client('Nf92DVhp69FI1Lj8q9X1JjZNpSCTy2zgJSQK4jnDmopSTSczsj-kYBkf-qf3oq1e-jesqK8cgrLpC-XM52eIfnxgQGvX0CwEz9QZKwcvguLID62A2WsSCe3ECqVRYnYx');
+// const yelp = require('yelp-fusion');
+// const client = yelp.client('xKtPwI4Rj7xRNlLYekgqpwlRmgtq0dUxBeYWDsbCTQhqUnqFSRluOURoDbvvXQ3G9kLWR7c3rmmNB92Ofr8cBgpy5mk4U2WdQIKWINQFGyXWG7anfSLSenMmWEFUYnYx');
 
 
 // const apiSearch = client.search({
