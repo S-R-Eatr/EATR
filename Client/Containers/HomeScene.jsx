@@ -7,7 +7,6 @@ const HomeScene = () => {
 
     return (
         <>
-        {/* < Header /> */}
         < Dropdown />
         </>
     )

@@ -12,7 +12,6 @@ const DropDown = () => {
 
     return (
         <div className="drop-down">
-            <h3>Dropdown</h3>
             <form>
                 <label htmlFor="location">
                     Location  
