@@ -37,6 +37,8 @@
   "dependencies": {
     "axios": "^0.26.1",
     "express": "^4.17.3",
+    "jsdom": "^19.0.0",
+    "node-fetch": "^3.2.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-redux": "^7.2.8",
@@ -44,5 +46,6 @@
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1"
-  }
+  },
+  "type": "module"
 }
