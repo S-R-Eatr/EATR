@@ -21,14 +21,14 @@ export const addToFavActionCreator = () => async (dispatch) => {
 
 export const getFavsActionCreator = () => async (dispatch) => {
   // FETCH API WITH AXIOS
-  const favRestaurants = await axios.post(URL);
+  const favRestaurants = await axios.get(URL);
   dispatch({
     type: types.GET_FAVS,
     payload: faveRestaurants.data,
   });
 };
 
-export const getNextActionCreator = () => async (dispatch) => {
+export const getNextActionCreator = () => {
   return {
     type: types.GET_NEXT,
   };
