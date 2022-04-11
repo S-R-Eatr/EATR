@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
+import { IconButton } from '@mui/material';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const DropDown = () => {
   // const [location, setLocation] = useState('');
@@ -33,7 +35,14 @@ const DropDown = () => {
         </label>
         <br></br>
         <br></br>
-        <button></button>
+        <button className="btn-restaurants">
+          <span className="desktop">Start looking</span>
+          <span className="mobile">
+            <IconButton aria-label="arrow forward">
+              <ArrowForwardIcon style={{ color: 'white' }} />
+            </IconButton>
+          </span>
+        </button>
       </form>
     </div>
   );

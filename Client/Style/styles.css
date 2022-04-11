@@ -16,11 +16,6 @@ html {
   font-size: 4rem;
   font-weight: 700;
   margin: 0 auto;
-
-  @media (min-width: 800px) {
-    font-weight: 900;
-    font-size: 5rem;
-  }
 }
 
 .header-container h1 {
@@ -55,4 +50,52 @@ input {
 
 .food {
   object-fit: cover;
+}
+
+.btn-restaurants {
+  margin-top: 1.5rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.6rem;
+  height: 5rem;
+  width: 15rem;
+  color: white;
+  background: #1f9b1f;
+}
+
+.btn-restaurants: hover {
+  background: red;
+}
+
+.btn-restaurants .desktop {
+  display: none;
+}
+
+.btn-restaurants .mobile {
+  display: inline-block;
+}
+
+/* Media Queries */
+@media (min-width: 800px) {
+  .header-container {
+    font-weight: 900;
+    font-size: 5rem;
+  }
+
+  .btn-restaurants {
+    margin-top: 1.5rem;
+    cursor: pointer;
+    border-radius: 0.6rem;
+    height: 5rem;
+    width: 25rem;
+    color: white;
+  }
+
+  .btn-restaurants .desktop {
+    display: inline-block;
+  }
+
+  .btn-restaurants .mobile {
+    display: none;
+  }
 }

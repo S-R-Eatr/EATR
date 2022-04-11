@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Card } from '@mui/material';
 import { CardContent } from '@mui/material';
 import { CardMedia } from '@mui/material';
@@ -11,7 +12,7 @@ const RestaurantCard = () => {
   // const formattedAddress = `${location['address1']} ${location['address2']}\n${location['city']}, ${location['state']} ${location['zip_code']}`;
 
   return (
-    <Grid spacing={0} align="center">
+    <Grid align="center">
       <Card sx={{ maxWidth: 420 }} align="left">
         <CardActionArea>
           <CardMedia
