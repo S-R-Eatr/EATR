@@ -5,9 +5,10 @@ import yelp from 'yelp-fusion';
 const client = yelp.client(
   'xKtPwI4Rj7xRNlLYekgqpwlRmgtq0dUxBeYWDsbCTQhqUnqFSRluOURoDbvvXQ3G9kLWR7c3rmmNB92Ofr8cBgpy5mk4U2WdQIKWINQFGyXWG7anfSLSenMmWEFUYnYx'
 );
+import Scraper from '../scraper.js'
 
 const apiController = {
-  storeRest(req, res, next) {
+  async storeRest(req, res, next) {
     // const { term, location } = req.body;
     // const obj = {
     //   term: term,
@@ -19,19 +20,28 @@ const apiController = {
 
     try {
       const obj = {
-        term: 'bagels',
+        term: 'smoothies',
         location: 'Richmond,VA',
-        limit: 10,
+        limit: 1,
         sort_by: 'best_match',
         categories: 'restaurants',
       };
-      client.search(obj)
-        .then((response) => {
-          res.locals.restaurants = response.jsonBody.businesses;
-          console.log(res.locals.restaurants)
-          return next();
-      });
-    } catch (error) {
+      const response = await client.search(obj)
+      const businesses = response.jsonBody.businesses;
+      const now = new Date()
+      const day = now.getDay()
+      // console.log(businesses[0].name)
+      for (let i = 0; i < businesses.length; i++) {
+        const respo = await client.business(businesses[i].alias);
+        businesses[i].hours = respo.jsonBody.hours[0].open[day];
+        const photos = await Scraper.scrapePhotos(businesses[i].alias);
+        businesses[i].photos = photos;
+      }
+      res.locals.restaurants = businesses;
+      return next()
+    
+      }
+      catch (error) {
       return next({
         log: `Error caught in apiController.storeRest middleware ${error}`,
         message: {

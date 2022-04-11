@@ -5,9 +5,9 @@ const { JSDOM } = jsdom;
 
 const Scraper = {};
 
-Scraper.generateURL = (bizUrl) => {
-  const biz = bizUrl.split('/biz/')[1];
-  const url = `https://www.yelp.com/biz_photos/${biz}?tab=food`;
+Scraper.generateURL = (alias) => {
+  //const biz = bizUrl.split('/biz/')[1];
+  const url = `https://www.yelp.com/biz_photos/${alias}?tab=food`;
   return url;
 }
 
