@@ -1,8 +1,9 @@
-const webpack = require('webpack');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BundleAnalyzerPlugin =
-  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+import webpack from 'webpack';
+import path, {dirname} from 'path';
+import { fileURLToPath } from 'url';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const config = {
   entry: ['./client/index.js'],
@@ -69,7 +70,7 @@ const config = {
     },
   },
   plugins: [
-    new BundleAnalyzerPlugin({
+    new BundleAnalyzerPlugin.BundleAnalyzerPlugin({
       analyzerMode: 'static',
       openAnalyzer: false,
     }),
@@ -80,4 +81,4 @@ const config = {
   ],
 };
 
-module.exports = config;
+export default config;
