@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { setSceneActionCreator } from '../Actions/actions.js';
+
+import { setSceneActionCreator, getRestaurantsActionCreator } from '../Actions/actions.js';
+
 import Header from '../Components/Header.jsx';
 import HomeScene from './HomeScene.jsx';
 import FeedScene from './FeedScene.jsx';
@@ -15,6 +17,14 @@ const MainContainer = () => {
       else if (scene === 'feed' && e.target.id === 'favorites') dispatch(setSceneActionCreator('favorites'));
       else if (scene === 'favorites' && e.target.id === 'back') dispatch(setSceneActionCreator('feed'));
       else dispatch(setSceneActionCreator('feed'));
+    }
+    const handleFormSubmission = (e) => {
+      e.preventDefault();
+      const form = e.target.parentNode;
+      const location = form.children[2].value;
+      const category = form.children[6].value;
+      dispatch(getRestaurantsActionCreator({location: location, category: category}));
+      handleSceneChange(e);
     }
     const renderSwitch = () => {
       switch(scene) {
@@ -33,12 +43,7 @@ const MainContainer = () => {
         default:
           return (
             <>
-            < HomeScene />
-            <button
-              onClick={handleSceneChange}
-              id='submit'
-              >>>>
-            </button>
+            < HomeScene onClick={handleFormSubmission}/>
             </>
           );
       }
