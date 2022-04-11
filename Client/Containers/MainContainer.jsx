@@ -5,8 +5,6 @@ import Header from '../Components/Header.jsx';
 import HomeScene from './HomeScene.jsx';
 import FeedScene from './FeedScene.jsx';
 import FavoritesScene from './FavoritesScene.jsx';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-
 const MainContainer = () => {
   const dispatch = useDispatch();
   const scene = useSelector((store) => store.setScene.sceneState);
@@ -37,24 +35,9 @@ const MainContainer = () => {
         return (
           <>
             <HomeScene />
-            <div className="btn-container">
-              <button
-                className="btn-restaurants"
-                onClick={handleSceneChange}
-                id="submit"
-              >
-                <span className="desktop">Start looking</span>
-                <span className="mobile">
-                  <ArrowForwardIcon style={{ color: 'white' }} />
-                </span>
-              </button>
-
-              {/* <button
-              onClick={handleSceneChange}
-              id='submit'
-              >>>>
-            </button> */}
-            </div>
+            <button onClick={handleSceneChange} id="submit">
+              >>>
+            </button>
           </>
         );
     }
