@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import restaurantsReducer from './restaurantsReducer';
-import favsReducer from './favsReducer';
-import setSceneReducer from './setSceneReducer';
+import restaurantsReducer from './restaurantsReducer.js';
+import favsReducer from './favsReducer.js';
+import setSceneReducer from './setSceneReducer.js';
 
 const reducers = combineReducers({
   restaurants: restaurantsReducer,
