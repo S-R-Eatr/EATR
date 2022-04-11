@@ -17,8 +17,6 @@ const DropDown = () => {
                 <label htmlFor="location">
                     Location  
                     <input id="location" 
-                    // onChange = {e => setLocation(e.target.value)} 
-                    // value={location}
                     placeholder="Enter restaurant area" />
                 </label>
                 <br></br>
@@ -26,8 +24,6 @@ const DropDown = () => {
                 <label htmlFor="category">
                     Category  
                     <input id="category" 
-                    // onChange = {e => setCategory(e.target.value)} 
-                    // value={category}
                     placeholder="Enter cuisine" />
                 </label>
                 <br></br>
@@ -38,9 +34,3 @@ const DropDown = () => {
 };
 
 export default DropDown;
-
-//when button is clicked
-    //Access and update redux's sceneState:
-    //Change sceneState to 'feed'
-        //Render RestaurantCard
-        //HeaderContainerForRestaurant (c has thumbs up and down buttons in it)
