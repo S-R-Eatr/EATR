@@ -49,10 +49,10 @@ const MainContainer = () => {
       }
     }
     return (
-      <div className="outerDiv">
+      <main>
         < Header onClick={handleSceneChange}/>
         {renderSwitch()}
-      </div>
+      </main>
     )
 }
 export default MainContainer;
