@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as types from '../Constants/actionTypes.js';
 
+//think action creator (getRestaurantsActionCreator) returning a thunk function: (async (dispatch) =>)
 export const getRestaurantsActionCreator = body => async dispatch => {
   // FETCH API WITH AXIOS
   const restaurants = await axios.get('/restaurants', {
