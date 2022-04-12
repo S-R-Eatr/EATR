@@ -7,16 +7,20 @@
   "author": "Charissa Ramirez, Iftekhar Uddin, Matthew Lapeer, Christian Sansovich",
   "license": "ISC",
   "scripts": {
-    "clean": "rm dist/bundle.js",
-    "build-dev": "webpack --mode development",
-    "build-prod": "webpack --mode production",
-    "start": "webpack serve --hot --mode development",
-    "server": "nodemon server/server.js"
+    "build": "webpack",
+    "dev": "nodemon server/server.js & webpack serve",
+    "start": "nodemon server/server.js",
+    "test": "test"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.6.1",
+    "@mui/material": "^5.6.0",
+    "@mui/system": "^5.6.0",
     "autoprefixer": "^10.4.4",
     "babel-loader": "^8.2.4",
     "css-loader": "^6.7.1",
@@ -31,9 +35,19 @@
     "webpack-dev-server": "^4.8.0"
   },
   "dependencies": {
+    "axios": "^0.26.1",
     "express": "^4.17.3",
+    "jsdom": "^19.0.0",
+    "node-fetch": "^3.2.3",
+    "nodemon": "^2.0.15",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^6.3.0"
-  }
+    "react-redux": "^7.2.8",
+    "react-router-dom": "^6.3.0",
+    "redux": "^4.1.2",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1",
+    "yelp-fusion": "^3.0.0"
+  },
+  "type": "module"
 }

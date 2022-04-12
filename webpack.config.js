@@ -1,8 +1,9 @@
-const webpack = require('webpack');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BundleAnalyzerPlugin =
-  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+import webpack from 'webpack';
+import path, {dirname} from 'path';
+import { fileURLToPath } from 'url';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const config = {
   entry: ['./client/index.js'],
@@ -10,6 +11,7 @@ const config = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
+  mode: "development",
   module: {
     rules: [
       {
@@ -67,12 +69,13 @@ const config = {
     static: {
       directory: './dist',
     },
+    proxy: {'/': 'http://localhost:3000/'}
   },
   plugins: [
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-      openAnalyzer: false,
-    }),
+    // new BundleAnalyzerPlugin.BundleAnalyzerPlugin({
+    //   analyzerMode: 'static',
+    //   openAnalyzer: false,
+    // }),
     new HtmlWebpackPlugin({
       title: 'Development',
       template: 'client/index.html'
@@ -80,4 +83,4 @@ const config = {
   ],
 };
 
-module.exports = config;
+export default config;
