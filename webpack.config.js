@@ -11,6 +11,7 @@ const config = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
+  mode: "development",
   module: {
     rules: [
       {
@@ -68,12 +69,13 @@ const config = {
     static: {
       directory: './dist',
     },
+    proxy: {'/': 'http://localhost:3000/'}
   },
   plugins: [
-    new BundleAnalyzerPlugin.BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-      openAnalyzer: false,
-    }),
+    // new BundleAnalyzerPlugin.BundleAnalyzerPlugin({
+    //   analyzerMode: 'static',
+    //   openAnalyzer: false,
+    // }),
     new HtmlWebpackPlugin({
       title: 'Development',
       template: 'client/index.html'
