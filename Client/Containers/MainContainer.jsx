@@ -18,15 +18,19 @@ const MainContainer = () => {
       else if (scene === 'favorites' && e.target.id === 'back') dispatch(setSceneActionCreator('feed'));
       else dispatch(setSceneActionCreator('feed'));
     }
-    const handleFormSubmission = (e) => {
+    const handleFormSubmission = (e) => { //possibly opening page that asks for restaurant name and zip
       e.preventDefault();
+      /**
+       * May be easier to target these by ID
+       */
+      
       const form = e.target.parentNode;
       const location = form.children[2].value;
       const category = form.children[6].value;
       dispatch(getRestaurantsActionCreator({term: category, location: location}));
       handleSceneChange(e);
     }
-    const renderSwitch = () => {
+    const renderSwitch = () => { //switching from 'swipe' feed to faves back to home (ie category/location)
       switch(scene) {
         case 'feed':
           return (
