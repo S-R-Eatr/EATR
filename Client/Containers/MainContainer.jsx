@@ -23,7 +23,7 @@ const MainContainer = () => {
       const form = e.target.parentNode;
       const location = form.children[2].value;
       const category = form.children[6].value;
-      dispatch(getRestaurantsActionCreator({location: location, category: category}));
+      dispatch(getRestaurantsActionCreator({term: category, location: location}));
       handleSceneChange(e);
     }
     const renderSwitch = () => {

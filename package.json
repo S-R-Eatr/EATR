@@ -7,11 +7,10 @@
   "author": "Charissa Ramirez, Iftekhar Uddin, Matthew Lapeer, Christian Sansovich",
   "license": "ISC",
   "scripts": {
-    "clean": "rm dist/bundle.js",
-    "build-dev": "webpack --mode development",
-    "build-prod": "webpack --mode production",
-    "start": "webpack serve --hot --mode development",
-    "server": "nodemon server/server.js"
+    "build": "webpack",
+    "dev": "nodemon server/server.js & webpack serve",
+    "start": "nodemon server/server.js",
+    "test": "test"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
@@ -35,6 +34,7 @@
     "express": "^4.17.3",
     "jsdom": "^19.0.0",
     "node-fetch": "^3.2.3",
+    "nodemon": "^2.0.15",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-redux": "^7.2.8",
@@ -45,5 +45,4 @@
     "yelp-fusion": "^3.0.0"
   },
   "type": "module"
-
 }

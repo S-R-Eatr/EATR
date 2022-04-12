@@ -11,13 +11,14 @@ const restaurantsReducer = (state = initState, action) => {
   let restaurantList;
   switch (action.type) {
     case types.GET_RESTAURANTS: {
+      restaurantList = action.payload;
       return {
         ...state,
         restaurantList,
       };
     }
     case types.GET_NEXT: {
-      restaurantList = restaurantList.slice(1);
+      restaurantList = state.restaurantList.slice(1);
       return {
         ...state,
         restaurantList,

@@ -22,7 +22,7 @@ Scraper.getHTML = async (url) => {
 }
 
 Scraper.getPhotos = async (html) => {
-  const dom = new JSDOM(html);
+  const dom = await new JSDOM(html);
   const photos = [];
 
   const unorderedList = dom.window.document.querySelector(".media-landing_gallery").children[0];
@@ -41,7 +41,7 @@ Scraper.scrapePhotos = async (name) => {
     const html = await Scraper.getHTML(url);
     return Scraper.getPhotos(html);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 

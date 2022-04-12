@@ -9,20 +9,13 @@ import Scraper from '../scraper.js'
 
 const apiController = {
   async storeRest(req, res, next) {
-    // const { term, location } = req.body;
-    // const obj = {
-    //   term: term,
-    //   location: location,
-    //   limit: 10,
-    //   sort_by: 'best_match',
-    //   categories: 'restaurants',
-    // };
+    const { term, location } = req.query;
 
     try {
       const obj = {
-        term: 'smoothies',
-        location: 'Richmond,VA',
-        limit: 1,
+        term: term,
+        location: location,
+        limit: 10,
         sort_by: 'best_match',
         categories: 'restaurants',
       };
@@ -30,18 +23,21 @@ const apiController = {
       const businesses = response.jsonBody.businesses;
       const now = new Date()
       const day = now.getDay()
-      // console.log(businesses[0].name)
+      // console.log(businesses.length)
       for (let i = 0; i < businesses.length; i++) {
         const respo = await client.business(businesses[i].alias);
         businesses[i].hours = respo.jsonBody.hours[0].open[day];
-        const photos = await Scraper.scrapePhotos(businesses[i].alias);
-        businesses[i].photos = photos;
+        // console.log("calling:", i)
+        // const photos = await Scraper.scrapePhotos(businesses[i].alias);
+        // businesses[i].photos = photos;
       }
       res.locals.restaurants = businesses;
+      // console.log(res.locals.restaurants);
       return next()
     
       }
       catch (error) {
+        console.log(error);
       return next({
         log: `Error caught in apiController.storeRest middleware ${error}`,
         message: {
