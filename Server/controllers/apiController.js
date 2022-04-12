@@ -9,8 +9,8 @@ import Scraper from '../scraper.js'
 
 const apiController = {
   async storeRest(req, res, next) {
-    const { term, location } = req.query;
 
+    const { term, location } = req.query;
     try {
       const obj = {
         term: term,
@@ -24,6 +24,7 @@ const apiController = {
       const now = new Date()
       const day = now.getDay()
       // console.log(businesses.length)
+
       for (let i = 0; i < businesses.length; i++) {
         const respo = await client.business(businesses[i].alias);
         businesses[i].hours = respo.jsonBody.hours[0].open[day];

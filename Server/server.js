@@ -15,9 +15,6 @@ app.get('/', (req, res) => {
 app.get('/restaurants', apiController.storeRest, (req, res) => {
   return res.status(201).send(res.locals.restaurants);
 });
-// app.get('/restaurants', apiController.storeRest, (req, res) => {
-//   return res.status(200).json(res.locals.hours);
-// });
 
 //Unknown Route Handler
 app.get('/*', (req, res) => {

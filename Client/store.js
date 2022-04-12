@@ -5,8 +5,7 @@ import reducers from './Reducers/index.js';
 
 const store = createStore(
   reducers,
-  undefined,
-  applyMiddleware(thunk)
+  composeWithDevTools(applyMiddleware(thunk))
 );
 
 export default store;
