@@ -109,7 +109,7 @@ const Authentication = () => {
         <button id="signup" type="submit">Sign Up</button>
        
       </form>
-      <button className="switch" onClick={loginSwapper}>Log In Instead</button>
+      <button className="switch" onClick={loginSwapper}>Log In</button>
     </div>
   </div>
   )

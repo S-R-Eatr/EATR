@@ -114,6 +114,7 @@ input {
   border: 5px solid chartreuse;
   text-align: center;
   margin: 2% auto;
+  border-radius: 8px;
   color: black;
 }
 
