@@ -23,7 +23,10 @@ const userSchema = new Schema({
 
 userSchema.pre('save', function save(next) {
   try {
+    console.log(BCRYPT_SALT)
     const salt = bcrypt.genSaltSync(BCRYPT_SALT);
+    console.log(salt)
+    console.log(this)
     this.password = bcrypt.hashSync(this.password, salt);
     return next();
   } catch (err) {
@@ -31,7 +34,9 @@ userSchema.pre('save', function save(next) {
   }
 })
 
-userSchema.methods.validatePassword = async (data) => {
+userSchema.methods.validatePassword = async function validatePassword(data) {
+  console.log(data)
+  console.log(this) 
   return bcrypt.compare(data, this.password)
 }
 

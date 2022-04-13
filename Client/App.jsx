@@ -7,8 +7,8 @@ import './Style/styles.css';
 
 const App = () => {
 
-  // const isLoggedIn = useSelector(store => store.setScene.isLoggedIn);
-  const isLoggedIn = false;
+  const isLoggedIn = useSelector(store => store.setScene.isLoggedIn);
+  // const isLoggedIn = ;
   if (isLoggedIn){
     return (
       <div className='mainContainer'>
