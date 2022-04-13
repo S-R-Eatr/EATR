@@ -1,6 +1,170 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Orbitron&display=swap');
 
-* {
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+  box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+  min-height: 100%;
+  background: url(https://awol.junkee.com/wp-content/uploads/2019/11/30624445_2031384813783830_665928700650323968_n-copy.jpg);
+  background-position: center;
+}
+
+button[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+} 
+
+/* .login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+html {
+  height: 100%;
+}
+/* 
+/* body {
+  min-height: 100%;
+  background-image:
+  radial-gradient(
+    white,
+    black,
+  );
+} */ 
+
+.authentication{
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  padding-top: 20vh;
+  font-size: 22px;
+}
+
+/* .loginusername{
+  box-sizing: border-box;
+  width: 50%;
+  border: 5px solid red;
+} */
+.login-wrapper {
+  background-color: rgba(0,0,0, 0.8);
+  border: 1px solid black;
+  padding: 20px;
+}
+
+form {
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+input {
+  box-sizing: border-box;
+  width: 50%;
+  height: 40px;
+  border: 5px solid chartreuse;
+  text-align: center;
+  margin: 2% auto;
+  color: black;
+}
+
+button{
+  display: block;
+  background-color: white;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 4px 8px #7fff00;
+  font-family: 'Bungee';
+}
+
+button:active {
+  margin-left: auto 5px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  border-radius: 8px;
+  box-shadow: 1px 1px #7fff00;
+}
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+  padding-bottom: 20px;
+  font-family: 'Bungee';
+  color: white;
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+  padding-bottom: 30px;
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+
+
+
+
+/* * {
   margin: 0;
   padding: 0;
   font-family: 'Poppins';
@@ -17,17 +181,9 @@ html {
   align-items: center;
   justify-content: center;
 
-}
+} */
 
-.authentication{
-  display: flex;
-  /* flex-direction: column; */
-  justify-content: center;
-  align-items: center;
-  padding-top: 100px;
-}
-
-#login-holder h1, #signup-holder h1{
+/* #login-holder h1, #signup-holder h1{
   text-align: center;
 }
 .login-holder{
@@ -48,13 +204,13 @@ button #signin{
 }
 
 .header-container h1 {
-  /* margin-left: 30px; */
+  /* margin-left: 30px; 
   text-align: center;
 
   /* @media (min-width: 800px) {
     text-align: center;
-  } */
-}
+  } 
+} */
 
 .mainContainer{
   display: flex;
@@ -63,7 +219,7 @@ button #signin{
   justify-content: center;
 }
 
-.center {
+/* .center {
   display: flex;
   justify-content: center;
 }
@@ -81,16 +237,15 @@ input {
   border: 1px solid #a7a5a5;
   border-radius: 0.5rem;
   width: 100%;
-  /* margin-left: 20px; */
-}
+  /* margin-left: 20px; 
+} */
 
 /* .food {
   object-fit: cover;
 } */
 
-#root {
-  margin-left: auto;
-  margin-right: auto;
+/* #root {
+  margin: auto;
 }
 
 .btn-container {
@@ -119,7 +274,7 @@ input {
 
 .btn-restaurants .mobile {
   display: inline-block;
-}
+} */
 
 /* Media Queries
 @media (min-width: 800px) {

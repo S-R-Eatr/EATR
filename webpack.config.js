@@ -31,11 +31,11 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-            },
+            // options: {
+            //   importLoaders: 1,
+            // },
           },
-          'postcss-loader',
+          //'postcss-loader',
         ],
         exclude: /\.module\.css$/,
       },
@@ -45,12 +45,12 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              modules: true,
-            },
+            // options: {
+            //   importLoaders: 1,
+            //   modules: true,
+            // },
           },
-          'postcss-loader',
+          //'postcss-loader',
         ],
         include: /\.module\.css$/,
       },
