@@ -2,6 +2,8 @@ import * as types from '../Constants/actionTypes.js';
 
 const initState = {
   sceneState: 'home',
+  isLoggedIn: false,
+  isNewUser: true,
 };
 
 const setSceneReducer = (state = initState, action) => {
@@ -13,6 +15,12 @@ const setSceneReducer = (state = initState, action) => {
         ...state,
         sceneState,
       };
+    }
+    case types.GET_ISNEWUSER: {
+      return{
+        ...state,
+        isNewUser: !(state.isNewUser)
+      }
     }
     default: {
       return state;
