@@ -15,20 +15,14 @@ const favsReducer = (state = initState, action) => {
         favsList,
       };
     }
-    //case for call to database (not setup yet)
-    case types.GET_FAVS: {
-      
+
+    case types.SET_FAVS: {
       return {
         ...state,
         favsList: action.payload,
       };
     }
-    case types.SET_FAVLIST: {
-      return {
-        ...state,
-        favsList: action.payload
-      }
-    }
+
     default: {
       return state;
     }

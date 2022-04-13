@@ -1,6 +1,6 @@
 import React, { component, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getIsNewUser, setFavList, setUser, setIsLoggedIn} from '../Actions/actions.js';
+import { getIsNewUser, setFavsActionCreator, setUser, setIsLoggedIn} from '../Actions/actions.js';
 import axios from 'axios';
 
 
@@ -30,9 +30,10 @@ const Authentication = () => {
         dispatch(setIsLoggedIn());
       } 
       
+      dispatch(setFavsActionCreator())
       //this will send a get request to server to retrieve the user's specific favorite list
-      const favList = await axios.get('/user');
-      dispatch(setFavList(favList.data));
+      // const favList = await axios.get('/user');
+      // dispatch(setFavList(favList.data));
 
       // dispatch(setUser(response.username));
       // setUser(response.data);

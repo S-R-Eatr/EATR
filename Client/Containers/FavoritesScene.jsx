@@ -7,7 +7,9 @@ const FavoritesScene = () => {
   const favsList = useSelector(store => store.favs.favsList);
   // console.log('favslist', favsList);
   const handleSave = () => {
-    axios.put('/', favList)
+    const toSend = await axios.put('/user', {
+      favorites: favsList
+    })
   }
   let favoriteCards = [];
   for (let i = 0; i < favsList.length; i++) {
