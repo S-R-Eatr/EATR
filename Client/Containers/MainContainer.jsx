@@ -8,7 +8,6 @@ import HomeScene from './HomeScene.jsx';
 import FeedScene from './FeedScene.jsx';
 import FavoritesScene from './FavoritesScene.jsx'
 
-
 const MainContainer = () => {
   const dispatch = useDispatch();
   const scene = useSelector(store => store.setScene.sceneState);
@@ -35,27 +34,29 @@ const MainContainer = () => {
         case 'feed':
           return (
             <>
-            < FeedScene />
+            <FeedScene />
             </>
           )
         case 'favorites':
           return (
             <>
-            < FavoritesScene />
+            <FavoritesScene />
             </>
           )
         default:
           return (
-            <>
-            < HomeScene onClick={handleFormSubmission}/>
-            </>
+            <div className='homeScene'>
+              <HomeScene onClick={handleFormSubmission}/>
+            </div>
           );
       }
     }
     return (
       <main>
-        < Header onClick={handleSceneChange}/>
-        {renderSwitch()}
+        <Header onClick={handleSceneChange}/>
+        <div className="scene">
+          {renderSwitch()}
+        </div>
       </main>
     )
 }

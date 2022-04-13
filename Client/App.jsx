@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import MainContainer from './Containers/MainContainer.jsx';
 import RestaurantCard from './Components/RestaurantCard.jsx';
 import Authentication from './Components/authentication.jsx';
+import './Style/styles.css';
 
 const App = () => {
 
@@ -10,7 +11,7 @@ const App = () => {
   const isLoggedIn = false;
   if (isLoggedIn){
     return (
-      <div>
+      <div className='mainContainer'>
         <MainContainer />
         {/* <RestaurantCard /> */}
       </div>
@@ -18,7 +19,7 @@ const App = () => {
   }
     else {
       return (
-      <div>
+      <div className='authentication'>
         <Authentication />
       </div>
       )

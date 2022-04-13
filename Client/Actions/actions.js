@@ -25,6 +25,22 @@ export const addToFavActionCreator = () => async (dispatch, getState) => {
   });
 };
 
+//setUser and setFavList won't run if username and password is wrong
+export const setUser = (user) => {
+  return {
+    type: types.SET_USER,
+    payload: user
+  }
+}
+
+
+export const setFavList = (list) => {
+  return {
+    type: types.SET_FAVLIST,
+    payload: list,
+  }
+}
+
 export const getFavsActionCreator = () => async (dispatch) => {
   // FETCH API WITH AXIOS
   // get favorites to database (not set up yet)
