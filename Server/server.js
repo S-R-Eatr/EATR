@@ -41,7 +41,6 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 });
 
-//hey bill
 //Unknown Route Handler
 app.get('/*', (req, res) => {
   return res.status(404).send('404 No Food Found!');
