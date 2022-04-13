@@ -37,8 +37,8 @@ const Authentication = () => {
   
   const handleSignup = async (e) => {
     e.preventDefault();
-    const username = document.getElementById('signupusername').textContent;  
-    let password = document.getElementById('signuppassword').textContent;
+    const username = document.getElementById('signupusername').value;  
+    let password = document.getElementById('signuppassword').value;
     try{
       const response = await axios.post('/auth/signup', {
         username,
