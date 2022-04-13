@@ -11,11 +11,11 @@ import store from './store.js';
 const container = document.getElementById('root');
 const root = createRoot(container);
 
-
+//provider component with store passed in makes the redux store available to all nested react components 
 root.render(
-        <Provider store={store}>
-            <App />
-        </Provider>
+  <Provider store={store}>
+      <App />
+  </Provider>
 );
 
 
