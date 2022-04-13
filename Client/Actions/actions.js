@@ -69,3 +69,9 @@ export const getIsNewUser = () => {
     type: types.GET_ISNEWUSER,
   }
 }
+
+export const setIsLoggedIn = () => {
+  return {
+    type: types.SET_ISLOGGEDIN
+  }
+}

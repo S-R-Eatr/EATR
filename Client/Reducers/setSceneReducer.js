@@ -22,6 +22,12 @@ const setSceneReducer = (state = initState, action) => {
         isNewUser: !(state.isNewUser)
       }
     }
+    case types.SET_ISLOGGEDIN: {
+      return {
+        ...state,
+        isLoggedIn: !(state.isLoggedIn)
+      }
+    }
     default: {
       return state;
     }

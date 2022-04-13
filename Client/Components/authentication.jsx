@@ -1,6 +1,6 @@
 import React, { component, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getIsNewUser, setFavList, setUser} from '../Actions/actions.js';
+import { getIsNewUser, setFavList, setUser, setIsLoggedIn} from '../Actions/actions.js';
 import axios from 'axios';
 
 
@@ -16,6 +16,7 @@ const Authentication = () => {
     const username = (document.getElementById('loginusername').textContent);  
     let password = (document.getElementById('loginpassword').textContent);
     try {
+      console.log('clicked login!')
       const response = await axios.post('/auth/login', {
         username,
         password
@@ -25,10 +26,13 @@ const Authentication = () => {
       //QUESTION: what is sent back to us if username doesn't exist or password is incorrect?
       console.log('HANDLESLOGIN RESPONSE: ', response)
       password = "";
-      dispatch(setFavList(response.list));
-      dispatch(setUser(response.username));
-      setUser(response.data);
-      localStorage.setItem("user", JSON.stringify(response.data));
+      if (response === 'Success'){ //can change this logic based on what else is coming back from server side
+        dispatch(setIsLoggedIn());
+      }
+      // dispatch(setFavList(response.list));
+      // dispatch(setUser(response.username));
+      // setUser(response.data);
+      // localStorage.setItem("user", JSON.stringify(response.data));
     } catch(err){
       console.log('Error at handleLogin! this is: ', err);
     }
@@ -46,10 +50,13 @@ const Authentication = () => {
       })
       console.log('HANDLESSIGNUP RESPONSE: ', response)
       password = "";
-      dispatch(setFavList(response.list));
-      dispatch(setUser(response.username));
-      setUser(response.data);
-      localStorage.setItem("user", JSON.stringify(response.data));
+      if (response === 'Success'){ //can change this logic based on what else is coming back from server side
+        dispatch(setIsLoggedIn());
+      }
+      // dispatch(setFavList(response.list));
+      // dispatch(setUser(response.username));
+      // setUser(response.data);
+      // localStorage.setItem("user", JSON.stringify(response.data));
     } catch(err){
       console.log('ERROR AT handleSignup: ', err)
     }
@@ -70,9 +77,9 @@ const Authentication = () => {
   //log in form
   return (
   <div className="login-wrapper">
-  
+  <h1 id="logintitle">Welcome to Eatr</h1>
     <div id="login-holder" style={{ display: isNewUser ? "none" : "contents" }}>
-      <h1>Please Log In</h1>
+      <h2>Please Log In</h2>
       <form onSubmit={handleLogin}>
         <label>
           <p>Username:</p>
@@ -82,13 +89,13 @@ const Authentication = () => {
           <p>Password:</p>
           <input type="password" name="password" id='loginpassword' required/>
         </label>
-        <button id="signin" type="submit">Sign In</button>
+        <button id="signin" type="submit">Login</button>
       </form>
       <button className="switch" onClick={loginSwapper}>Sign Up Instead</button>
     </div>
 
     <div id="signup-holder" style={{ display: isNewUser ? "contents" : "none" }}>
-      <h1>Sign Up For Eatr</h1>
+      <h2>Sign up here!</h2>
       <form onSubmit={handleSignup}>
         <label>
           <p>Username:</p>
@@ -98,11 +105,11 @@ const Authentication = () => {
           <p>Password:</p>
           <input type="password" name="password" id='signuppassword' required/>
         </label>
-        <div>
-          <button id="signup" type="submit">Sign Up</button>
-        </div>
+
+        <button id="signup" type="submit">Sign Up</button>
+       
       </form>
-      <button className="switch" onClick={loginSwapper}>Sign In Instead</button>
+      <button className="switch" onClick={loginSwapper}>Log In</button>
     </div>
   </div>
   )
