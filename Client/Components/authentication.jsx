@@ -28,8 +28,12 @@ const Authentication = () => {
       password = "";
       if (response.status === 200){ //can change this logic based on what else is coming back from server side
         dispatch(setIsLoggedIn());
-      }
-      // dispatch(setFavList(response.list));
+      } 
+      
+      //this will send a get request to server to retrieve the user's specific favorite list
+      const favList = await axios.get('/user');
+      dispatch(setFavList(favList.data));
+
       // dispatch(setUser(response.username));
       // setUser(response.data);
       // localStorage.setItem("user", JSON.stringify(response.data));
@@ -107,9 +111,10 @@ const Authentication = () => {
         </label>
 
         <button id="signup" type="submit">Sign Up</button>
+
+        <button className="switch" type="reset" onClick={loginSwapper}>Log In Here</button>
        
-      </form>
-      <button className="switch" onClick={loginSwapper}>Log In</button>
+      </form>  
     </div>
   </div>
   )
