@@ -28,7 +28,7 @@ mongoose.connect(connection_URI, {
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
-//hi bill
+
 //Route handlers
 app.use('/auth', authRouter);
 app.use('/user', userRouter);
@@ -41,12 +41,10 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 });
 
-//hey bill
 //Unknown Route Handler
 app.get('/*', (req, res) => {
   return res.status(404).send('404 No Food Found!');
 });
-//whats up bill
 //Global Error Handler
 app.use((err, req, res, next) => {
   const defaultErr = {

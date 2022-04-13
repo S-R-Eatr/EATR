@@ -4,9 +4,9 @@ const authController = {};
 
 authController.createUser = async (req, res, next) => {
   try {
+    console.log(req.body)
     const { username, password } = req.body;
-    console.log(username)
-    console.log(password)
+    res.locals.username = username;
     if (!username || !password) {
       const err = {
         log: 'Express caught error in createUser controller. Username or password not provided',
@@ -18,7 +18,6 @@ authController.createUser = async (req, res, next) => {
     }
 
     const user = await User.findOne({ username: username })
-    console.log(user);
     if (user) {
       const err = {
         log: 'Express caught error in createUser controller. Username already exists',
@@ -28,17 +27,24 @@ authController.createUser = async (req, res, next) => {
       return next(err);
     }
 
-    await User.create({ username: username, password: password });
+    const newUser = await User.create({ username: username, password: password });
     console.log('User created')
+    res.locals.userId = newUser.id;
     return next();
 
   } catch (err) {
-    return next(err);
+    const error = {
+      log: 'Express caught error in createUser controller.',
+      status: 400,
+      message: {err: `An error has occured: ${err}`},
+    };
+    return next(error);
   }
 };
 
 authController.verifyUser = async (req, res, next) => {
   const { username, password } = req.body;
+  res.locals.username = username;
   try {
     if (!username || !password) {
       const err = {
@@ -66,7 +72,12 @@ authController.verifyUser = async (req, res, next) => {
       throw new Error(err)
     }
   } catch (err) {
-    return next(err);
+    const error = {
+      log: 'Express caught error in verifyUser controller.',
+      status: 400,
+      message: {err: `An error has occured: ${err}`},
+    };
+    return next(error);
   }
 };
 
