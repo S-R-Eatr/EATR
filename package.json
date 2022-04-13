@@ -37,6 +37,7 @@
   "dependencies": {
     "axios": "^0.26.1",
     "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "jsdom": "^19.0.0",
@@ -50,7 +51,7 @@
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
+    "uuid": "^8.3.2",
     "yelp-fusion": "^3.0.0"
-  },
-  "type": "module"
+  }
 }

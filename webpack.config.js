@@ -1,11 +1,17 @@
-import webpack from 'webpack';
-import path, {dirname} from 'path';
-import { fileURLToPath } from 'url';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
-const __dirname = dirname(fileURLToPath(import.meta.url));
+// import webpack from 'webpack';
+// import path, {dirname} from 'path';
+// import { fileURLToPath } from 'url';
+// import HtmlWebpackPlugin from 'html-webpack-plugin';
+// import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
+// const __dirname = dirname(fileURLToPath(import.meta.url));
+const webpack = require('webpack');
+const path = require('path');
+const { fileURLToPath } = require('url');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer');
+// const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const config = {
+module.exports = {
   entry: ['./client/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -82,5 +88,3 @@ const config = {
     })
   ],
 };
-
-export default config;
