@@ -75,7 +75,11 @@ module.exports = {
     static: {
       directory: './dist',
     },
-    proxy: {'/': 'http://localhost:3000/'}
+    proxy: {
+      '/': 'http://localhost:3000/',
+      '/auth/*': 'http://localhost:3000',
+      '/user/*': 'http://localhost:3000'
+    }
   },
   plugins: [
     // new BundleAnalyzerPlugin.BundleAnalyzerPlugin({
