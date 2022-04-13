@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as types from '../Constants/actionTypes.js';
+import { useSelector} from 'react-redux';
 
 //think action creator (getRestaurantsActionCreator) returning a thunk function: (async (dispatch) =>)
 export const getRestaurantsActionCreator = body => async dispatch => {
@@ -32,22 +33,12 @@ export const setUser = (user) => {
     payload: user
   }
 }
+export const setFavsActionCreator = () => async (dispatch) => {
+  const favList = await axios.get('/user');
 
-
-export const setFavList = (list) => {
-  return {
-    type: types.SET_FAVLIST,
-    payload: list,
-  }
-}
-
-export const getFavsActionCreator = () => async (dispatch) => {
-  // FETCH API WITH AXIOS
-  // get favorites to database (not set up yet)
-  // const favRestaurants = await axios.post(URL);
   dispatch({
-    type: types.GET_FAVS,
-    payload: faveRestaurants.data,
+    type: types.SET_FAVS,
+    payload: favList.data
   });
 };
 

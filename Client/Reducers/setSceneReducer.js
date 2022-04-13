@@ -3,7 +3,7 @@ import * as types from '../Constants/actionTypes.js';
 const initState = {
   sceneState: 'home',
   isLoggedIn: false,
-  isNewUser: true,
+  isNewUser: false,
 };
 
 const setSceneReducer = (state = initState, action) => {
