@@ -48,3 +48,8 @@ export const setSceneActionCreator = (scene) => {
   };
 };
 
+export const getIsNewUser = () => {
+  return {
+    type: types.GET_ISNEWUSER,
+  }
+}
