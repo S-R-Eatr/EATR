@@ -16,7 +16,7 @@ const Authentication = () => {
     const username = (document.getElementById('loginusername').textContent);  
     let password = (document.getElementById('loginpassword').textContent);
     try {
-      const response = await axios.post('/login', {
+      const response = await axios.post('/auth/login', {
         username,
         password
       })
@@ -40,7 +40,7 @@ const Authentication = () => {
     const username = document.getElementById('signupusername').textContent;  
     let password = document.getElementById('signuppassword').textContent;
     try{
-      const response = await axios.post('/signup', {
+      const response = await axios.post('/auth/signup', {
         username,
         password
       })
@@ -70,33 +70,33 @@ const Authentication = () => {
   //log in form
   return (
   <div className="login-wrapper">
+  
     <div id="login-holder" style={{ display: isNewUser ? "none" : "contents" }}>
       <h1>Please Log In</h1>
-      <form method="POST" action='/login' onSubmit={handleLogin}>
+      <form onSubmit={handleLogin}>
         <label>
           <p>Username:</p>
-          <input type="text" name="username" id='loginusername'/>
+          <input type="text" name="username" id='loginusername' required/>
         </label>
         <label>
           <p>Password:</p>
-          <input type="password" name="password" id='loginpassword'/>
+          <input type="password" name="password" id='loginpassword' required/>
         </label>
-        <div>
-          <button id="signin" type="submit">Sign In</button>
-        </div>
+        <button id="signin" type="submit">Sign In</button>
       </form>
       <button className="switch" onClick={loginSwapper}>Sign Up Instead</button>
     </div>
+
     <div id="signup-holder" style={{ display: isNewUser ? "contents" : "none" }}>
-      <h1>Sign Up For Noms</h1>
-      <form method="POST" action='/signup' onSubmit={handleSignup}>
+      <h1>Sign Up For Eatr</h1>
+      <form onSubmit={handleSignup}>
         <label>
           <p>Username:</p>
-          <input type="text" name="username" id='signupusername'/>
+          <input type="text" name="username" id='signupusername' required/>
         </label>
         <label>
           <p>Password:</p>
-          <input type="password" name="password" id='signuppassword'/>
+          <input type="password" name="password" id='signuppassword' required/>
         </label>
         <div>
           <button id="signup" type="submit">Sign Up</button>

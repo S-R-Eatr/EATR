@@ -9,9 +9,9 @@ const Header = (props) => {
       case 'feed':
         return (
           <>
-          <button id="back" onClick={props.onClick}>Back</button>
-          <h1>Eatr</h1>
-          <button id="favorites" disabled={hideFavorites} onClick={props.onClick}>Favorites</button>
+            <button id="back" onClick={props.onClick}>Back</button>
+            <h1>Eatr</h1>
+            <button id="favorites" disabled={hideFavorites} onClick={props.onClick}>Favorites</button>
           </>
         );
       case 'favorites':
@@ -19,7 +19,7 @@ const Header = (props) => {
           <>
           <button id="back" onClick={props.onClick}>Back</button>
           <h1>Eatr</h1>
-          <p>Congrats! Here are your liked options</p>
+          <p>Here are your liked options</p>
           </>
         );
       default:

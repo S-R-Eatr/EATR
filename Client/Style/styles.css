@@ -11,6 +11,35 @@ html {
   font-size: 62.5%;
 }
 
+#root{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.authentication{
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+}
+
+#login-holder h1, #signup-holder h1{
+  text-align: center;
+}
+.login-holder{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+button #signin{
+  align-self: center;
+}
+
 .header-container {
   color: #1f9b1f;
   font-size: 4rem;
@@ -25,6 +54,13 @@ html {
   /* @media (min-width: 800px) {
     text-align: center;
   } */
+}
+
+.mainContainer{
+  display: flex;
+  flex-direction:center;
+  align-items: center;
+  justify-content: center;
 }
 
 .center {
@@ -44,13 +80,18 @@ input {
   padding: 0.8rem 1rem;
   border: 1px solid #a7a5a5;
   border-radius: 0.5rem;
-  width: 20%;
-  margin-left: 20px;
+  width: 100%;
+  /* margin-left: 20px; */
 }
 
 /* .food {
   object-fit: cover;
 } */
+
+#root {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .btn-container {
   text-align: center;
@@ -80,7 +121,7 @@ input {
   display: inline-block;
 }
 
-/* Media Queries */
+/* Media Queries
 @media (min-width: 800px) {
   .header-container {
     font-weight: 900;
@@ -105,4 +146,4 @@ input {
   .btn-restaurants .mobile {
     display: none;
   }
-}
+} */
