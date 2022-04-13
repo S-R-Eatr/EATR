@@ -43,6 +43,7 @@ authController.createUser = async (req, res, next) => {
 };
 
 authController.verifyUser = async (req, res, next) => {
+  console.log(req.body)
   const { username, password } = req.body;
   res.locals.username = username;
   try {
@@ -56,6 +57,7 @@ authController.verifyUser = async (req, res, next) => {
     }
   
     const user = await User.findOne({ username: username })
+    console.log(user)
     const err = {
       log: 'Express caught error in verifyUser controller. Username or password incorrect',
       status: 400,
@@ -64,8 +66,9 @@ authController.verifyUser = async (req, res, next) => {
     if (!user) {
       throw new Error(err)
     }
-    
-    const isValidated = await User.validatePassword(password)
+    console.log('Pre-validate')
+    const isValidated = await user.validatePassword(password)
+    console.log(isValidated)
     if (isValidated) {
       return next()
     } else {

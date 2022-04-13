@@ -13,8 +13,8 @@ const Authentication = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const username = (document.getElementById('loginusername').textContent);  
-    let password = (document.getElementById('loginpassword').textContent);
+    const username = (document.getElementById('loginusername').value);  
+    let password = (document.getElementById('loginpassword').value);
     try {
       console.log('clicked login!')
       const response = await axios.post('/auth/login', {
@@ -26,7 +26,7 @@ const Authentication = () => {
       //QUESTION: what is sent back to us if username doesn't exist or password is incorrect?
       console.log('HANDLESLOGIN RESPONSE: ', response)
       password = "";
-      if (response === 'Success'){ //can change this logic based on what else is coming back from server side
+      if (response.status === 200){ //can change this logic based on what else is coming back from server side
         dispatch(setIsLoggedIn());
       }
       // dispatch(setFavList(response.list));
@@ -50,7 +50,7 @@ const Authentication = () => {
       })
       console.log('HANDLESSIGNUP RESPONSE: ', response)
       password = "";
-      if (response === 'Success'){ //can change this logic based on what else is coming back from server side
+      if (response.status === 200){ //can change this logic based on what else is coming back from server side
         dispatch(setIsLoggedIn());
       }
       // dispatch(setFavList(response.list));
