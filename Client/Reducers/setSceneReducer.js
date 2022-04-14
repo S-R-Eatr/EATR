@@ -5,7 +5,7 @@ const initState = {
   isLoggedIn: false,
   isNewUser: false,
 };
-
+//returns user to home screen
 const setSceneReducer = (state = initState, action) => {
   let sceneState;
   switch (action.type) {
@@ -15,13 +15,13 @@ const setSceneReducer = (state = initState, action) => {
         ...state,
         sceneState,
       };
-    }
+    } //determines if a user has a profile
     case types.GET_ISNEWUSER: {
       return{
         ...state,
         isNewUser: !(state.isNewUser)
       }
-    }
+    } //determins if a user is logged in 
     case types.SET_ISLOGGEDIN: {
       return {
         ...state,

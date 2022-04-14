@@ -3,7 +3,7 @@ import * as types from '../constants/actionTypes.js';
 const initState = {
   favsList: [],
 };
-
+//** favsReducer logic adds favorited restaurants to user's profile */
 const favsReducer = (state = initState, action) => {
   let favsList;
   switch (action.type) {

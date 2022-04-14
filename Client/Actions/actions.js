@@ -24,9 +24,6 @@ export const addToFavActionCreator = () => async (dispatch, getState) => {
     // payload: addFav.data,
     payload: favorite
   });
-  // FETCH API WITH AXIOS
-  // add favorite to database (not set up yet)
-  // const addFav = await axios.post(URL);
 };
 
 //setUser and setFavList won't run if username and password is wrong
@@ -36,6 +33,9 @@ export const setUser = (user) => {
     payload: user
   }
 }
+
+//action creator that will perform a get request to obtain favorites list
+//will dispatch that received list and dispatch to redux store 
 export const setFavsActionCreator = () => async (dispatch) => {
   const favList = await axios.get('/user');
 
@@ -45,25 +45,29 @@ export const setFavsActionCreator = () => async (dispatch) => {
   });
 };
 
-export const getNextActionCreator = () => {
+//action that will get the next restaurant in the list
+export const getNext = () => {
   return {
     type: types.GET_NEXT,
   };
 };
 
-export const setSceneActionCreator = (scene) => {
+//action that will change the scene the user is in
+export const setScene = (scene) => {
   return {
     type: types.SET_SCENE,
     payload: scene,
   };
 };
 
+//action that will inverse the boolean of isNewUser state
 export const getIsNewUser = () => {
   return {
     type: types.GET_ISNEWUSER,
   }
 }
 
+//action that will inverse the boolean of isLoggedIn state
 export const setIsLoggedIn = () => {
   return {
     type: types.SET_ISLOGGEDIN

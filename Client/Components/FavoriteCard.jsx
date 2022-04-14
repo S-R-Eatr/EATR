@@ -1,6 +1,7 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 
+//This component is used to create the display for each favorite restaurant card
 const FavoriteCard = (props) => {
   const business = useSelector(store => store.favs.favsList[props.index]);
   const location = business.location;
@@ -11,10 +12,10 @@ const FavoriteCard = (props) => {
     <article className="favorite-card">
       <img src={business.image_url} alt="restaurant's main photo"></img>
       <section className="favorites-business-info">
-        <h3>{business.name}</h3>
+        <h3>Name: {business.name}</h3>
         <address>
-          <p>{formattedAddress}</p>
-          <a href={`tel:+${business.phone}`}>{formattedPhone}</a>
+          <p>Address: {formattedAddress}</p>
+          <a href={`tel:+${business.phone}`}>Phone number: {formattedPhone}</a>
         </address>
       </section>
     </article>

@@ -6,7 +6,7 @@ const initState = {
   location: '',
   offset: 0,
 };
-
+// returns restaurants in category and location entered by user
 const restaurantsReducer = (state = initState, action) => {
   let restaurantList;
   switch (action.type) {
@@ -16,7 +16,7 @@ const restaurantsReducer = (state = initState, action) => {
         ...state,
         restaurantList,
       };
-    }
+    } // returns a new restaurant after user 'swipes' on option presented to them
     case types.GET_NEXT: {
       restaurantList = state.restaurantList.slice(1);
       return {

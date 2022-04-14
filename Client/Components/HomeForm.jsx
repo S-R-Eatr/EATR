@@ -1,8 +1,8 @@
-
 import React from 'react';
-import { useState } from 'react';
-import { setSceneActionCreator, getRestaurantsActionCreator } from '../actions/actions.js';
+//import Header from '../components/Header.jsx';
 
+//this component will provide a form to the user
+//allows user to search by location + category -- submit logic in parent container, HomeScene
 const HomeForm = (props) => {
 
     return (
@@ -12,7 +12,7 @@ const HomeForm = (props) => {
                 <input type="text" id="locationinput"></input><br></br>
                 <label htmlFor="category">Category:</label><br></br>
                 <input type="text" id="categoryinput"></input><br></br>
-                <input type="submit" value="Submit" id="submit"></input>
+                <button type="submit" value="Submit" id="submit">Submit</button>
             </form>
         </div>
     );
