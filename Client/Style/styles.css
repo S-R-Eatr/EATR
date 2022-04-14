@@ -62,12 +62,6 @@ button[disabled] {
   pointer-events: none;
 } 
 
-/* .login-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 html {
   height: 100%;
 }
@@ -81,7 +75,7 @@ html {
   );
 } */ 
 
-.authentication{
+.authentication, .mainContainer{
   display: flex;
   /* flex-direction: column; */
   justify-content: center;
@@ -95,10 +89,11 @@ html {
   width: 50%;
   border: 5px solid red;
 } */
-.login-wrapper, main {
+.login-wrapper, main{
   background-color: rgba(0,0,0, 0.8);
   border: 1px solid black;
   padding: 20px;
+  min-width: 30vw;
 }
 
 form {
@@ -109,7 +104,7 @@ form {
 
 input {
   box-sizing: border-box;
-  width: 50%;
+  width: 60%;
   height: 40px;
   border: 5px solid chartreuse;
   text-align: center;
@@ -133,6 +128,7 @@ button{
   box-shadow: 0 0 2px 5px RGBA(127, 255, 0, 1);
   font-family: 'Bungee';
   box-sizing: border-box;
+  pointer-events: auto;
 }
 
 button:active {
@@ -159,9 +155,32 @@ p, label {
   color: white;
 }
 
+.buttons {
+  display: flex;
+  justify-content: center;
+}
 
+.buttons button{
+  margin: 10px;
+}
 
+.restaurant-card, .favorite-card{
+  color: white;
+}
 
+img {
+  max-height: 50vh;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 /* * {
   margin: 0;

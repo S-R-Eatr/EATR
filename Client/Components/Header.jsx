@@ -1,10 +1,10 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 
-
+//** This component contains logic for 'back' and 'favorites' buttons that exist in the header */
 const Header = (props) => {
   const scene = useSelector(store => store.setScene.sceneState);
-  const hideFavorites = useSelector(store => store.favs.favsList.length < 4);
+  //const hideFavorites = useSelector(store => store.favs.favsList.length < 4);
     switch (scene) {
       case 'feed':
         return (
@@ -24,7 +24,10 @@ const Header = (props) => {
         );
       default:
         return (
-          <h1>Eatr</h1>
+          <>
+            <h1>Eatr</h1>
+            <button id="favorites" onClick={(e) => props.handleSceneChange(e)}>Favorites</button>
+          </>
         );
     }
 }

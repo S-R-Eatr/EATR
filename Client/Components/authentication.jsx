@@ -5,45 +5,39 @@ import axios from 'axios';
 
 
 const Authentication = () => {
+  //pull state from redux store
   const isNewUser = useSelector(store => store.setScene.isNewUser)
   const dispatch = useDispatch();
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [user, setUser] = useState();
 
+  //logic to handle login when login button is pressed
+  //will perform a post request to send username/password
+  //will also perform subsequent get request for the favlist stored in database
   const handleLogin = async (e) => {
     e.preventDefault();
-    const username = (document.getElementById('loginusername').value);  
+    let username = (document.getElementById('loginusername').value);  
     let password = (document.getElementById('loginpassword').value);
     try {
-      console.log('clicked login!')
+      //console.log('clicked login!')
       const response = await axios.post('/auth/login', {
         username,
         password
       })
       //if response object has something that tells us the username/passwords incorrect/doesn't exist, will need to inform the user
-      //QUESTION: what exactly is being sent back to us other than the favList? 
-      //QUESTION: what is sent back to us if username doesn't exist or password is incorrect?
-      console.log('HANDLESLOGIN RESPONSE: ', response)
+      //console.log('HANDLESLOGIN RESPONSE: ', response)
       password = "";
       if (response.status === 200){ //can change this logic based on what else is coming back from server side
         dispatch(setIsLoggedIn());
+        dispatch(setFavsActionCreator())
       } 
-      
-      dispatch(setFavsActionCreator())
-      //this will send a get request to server to retrieve the user's specific favorite list
-      // const favList = await axios.get('/user');
-      // dispatch(setFavList(favList.data));
-
-      // dispatch(setUser(response.username));
-      // setUser(response.data);
-      // localStorage.setItem("user", JSON.stringify(response.data));
     } catch(err){
+      alert('Incorrect username or password!');
+      document.getElementById('loginusername').value = '';
+      document.getElementById('loginpassword').value = '';
       console.log('Error at handleLogin! this is: ', err);
     }
-  
   }
-  
+  //logic to handle signup when login button is pressed
+  //will perform a post request to send username/password
   const handleSignup = async (e) => {
     e.preventDefault();
     const username = document.getElementById('signupusername').value;  
@@ -53,28 +47,18 @@ const Authentication = () => {
         username,
         password
       })
-      console.log('HANDLESSIGNUP RESPONSE: ', response)
+      //console.log('HANDLESSIGNUP RESPONSE: ', response)
       password = "";
       if (response.status === 200){ //can change this logic based on what else is coming back from server side
         dispatch(setIsLoggedIn());
       }
-      // dispatch(setFavList(response.list));
-      // dispatch(setUser(response.username));
-      // setUser(response.data);
-      // localStorage.setItem("user", JSON.stringify(response.data));
+
     } catch(err){
       console.log('ERROR AT handleSignup: ', err)
     }
   }
 
-   useEffect(() => {
-    const loggedInUser = localStorage.getItem("user");
-    if (loggedInUser) {
-      const foundUser = JSON.parse(loggedInUser);
-      setUser(foundUser);
-    }
-  }, []);
-  
+  //allow user switch between login/signup forms
   function loginSwapper(){
     dispatch(getIsNewUser());
   }
@@ -120,21 +104,5 @@ const Authentication = () => {
   </div>
   )
 }
-
-//https://upmostly.com/tutorials/react-onchange-events-with-examples
-// import React from 'react';
-
-// function App() {
-
-//   function handleChange(event) {
-//     console.log(event.target.value);
-//   }
-  
-//   return (
-//     <input name="firstName" onChange={handleChange} />
-//   );
-// }
-
-// export default App;
 
 export default Authentication;
