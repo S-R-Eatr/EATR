@@ -1,8 +1,9 @@
 import axios from 'axios';
-import * as types from '../Constants/actionTypes.js';
+import * as types from '../constants/actionTypes.js';
 import { useSelector} from 'react-redux';
 
 //think action creator (getRestaurantsActionCreator) returning a thunk function: (async (dispatch) =>)
+//action creator creates an axios get-request to get restaurants from yelp API --> dispatch to update restaurant list
 export const getRestaurantsActionCreator = body => async dispatch => {
   // FETCH API WITH AXIOS
   const restaurants = await axios.get('/restaurants', {
@@ -14,6 +15,7 @@ export const getRestaurantsActionCreator = body => async dispatch => {
   });
 };
 
+//making a 
 export const addToFavActionCreator = () => async (dispatch, getState) => {
   const favorite = await getState().restaurants.restaurantList[0];
   // FETCH API WITH AXIOS

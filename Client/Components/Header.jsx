@@ -9,15 +9,15 @@ const Header = (props) => {
       case 'feed':
         return (
           <>
-            <button id="back" onClick={() => props.handleSceneChange()}>Back</button>
+            <button id="back" onClick={(e) => props.handleSceneChange(e)}>Back</button>
             <h1>Eatr</h1>
-            <button id="favorites" disabled={hideFavorites} onClick={() => props.handleSceneChange()}>Favorites</button>
+            <button id="favorites" onClick={(e) => props.handleSceneChange(e)}>Favorites</button>
           </>
         );
       case 'favorites':
         return (
           <>
-          <button id="back" onClick={() => props.handleSceneChange()}>Back</button>
+          <button id="back" onClick={(e) => props.handleSceneChange(e)}>Back</button>
           <h1>Eatr</h1>
           <p>Here are your liked options</p>
           </>

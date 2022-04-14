@@ -2,9 +2,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { getNextActionCreator, addToFavActionCreator } from '../Actions/actions.js';
+import { getNextActionCreator, addToFavActionCreator } from '../actions/actions.js';
 
-import RestaurantCard from '../Components/RestaurantCard.jsx';
+import RestaurantCard from '../components/RestaurantCard.jsx';
 
 
 const FeedScene = () => {

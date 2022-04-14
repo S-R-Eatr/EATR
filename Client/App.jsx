@@ -1,9 +1,9 @@
 import React, { component } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import MainContainer from './Containers/MainContainer.jsx';
-import RestaurantCard from './Components/RestaurantCard.jsx';
-import Authentication from './Components/authentication.jsx';
-import './Style/styles.css';
+import MainContainer from './containers/MainContainer.jsx';
+import RestaurantCard from './components/RestaurantCard.jsx';
+import Authentication from './components/authentication.jsx';
+import './style/styles.css';
 
 const App = () => {
 

@@ -9,7 +9,8 @@ sessionController.createSession = async (req, res, next) => {
     const uuid = uuidv4();
     // create session and get _id
     const session = await sessiondb.create({ cookieId: uuid, userId: res.locals.userId })
-    
+    // const session = await sessiondb.findOneAndUpdate({ cookieId: uuid, userId: res.locals.userId }, {upsert: true})
+
     // insert _id into user.sessionId
     await User.findOneAndUpdate({ username: res.locals.username }, { sessionId: session.id })
     res.cookie('ssid', uuid, { httpOnly: true, secure: true, maxAge: 300000 }); // localhost could be problem with 'secure'
@@ -27,11 +28,14 @@ sessionController.createSession = async (req, res, next) => {
 sessionController.verifySession = async (req, res, next) => {
   try {
     const { ssid } = req.cookies;
+    console.log('SSID Cookie in verifySession: ', ssid)
     const activeSession = await sessiondb.findOne({ cookieId: ssid });
+    console.log('activeSession in verifySession: ', activeSession)
     if (!activeSession) {
       throw new Error('Authentication failed')
     }
     const userId = await User.findById(activeSession.userId);
+    console.log('userId in verifySession: ', userId)
     res.locals.userId = userId.id;
     return next()
   } catch (err) {

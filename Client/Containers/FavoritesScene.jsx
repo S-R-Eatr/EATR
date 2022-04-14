@@ -1,12 +1,12 @@
 import axios from 'axios';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import FavoriteCard from '../Components/FavoriteCard.jsx';
+import FavoriteCard from '../components/FavoriteCard.jsx';
 
 const FavoritesScene = () => {
   const favsList = useSelector(store => store.favs.favsList);
   // console.log('favslist', favsList);
-  const handleSave = () => {
+  const handleSave = async () => {
     const toSend = await axios.put('/user', {
       favorites: favsList
     })

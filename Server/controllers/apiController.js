@@ -6,7 +6,7 @@ const express = require('express');
 ('use strict');
 const yelp = require('yelp-fusion');
 const client = yelp.client( //using API key from yelp to send request and get response
-  'xKtPwI4Rj7xRNlLYekgqpwlRmgtq0dUxBeYWDsbCTQhqUnqFSRluOURoDbvvXQ3G9kLWR7c3rmmNB92Ofr8cBgpy5mk4U2WdQIKWINQFGyXWG7anfSLSenMmWEFUYnYx'
+  '3aDQPNXQIadamGnn1R6xLa85YzpbL_e_dSuSAZllNVG2iHlZJAS92o0j_wxRvubiBZEOhQ_AdhQE20aWcSLaV-XGJE-d46ExFa8vnsmbDe3oRJc7rYWTIQKNU1NXYnYx'
 );
 // import Scraper from '../scraper.js'
 

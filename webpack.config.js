@@ -22,7 +22,11 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader',
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env', '@babel/react'],
+          plugins: ['@babel/plugin-transform-runtime', '@babel/transform-async-to-generator'],
+        },
         exclude: /node_modules/,
       },
       {
@@ -80,6 +84,9 @@ module.exports = {
       '/auth/*': 'http://localhost:3000',
       '/user/*': 'http://localhost:3000'
     }
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     // new BundleAnalyzerPlugin.BundleAnalyzerPlugin({

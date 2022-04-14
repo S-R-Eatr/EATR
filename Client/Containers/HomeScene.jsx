@@ -1,6 +1,6 @@
 import React from 'react';
-import HomeForm from '../Components/HomeForm.jsx'
-import { setSceneActionCreator, getRestaurantsActionCreator } from '../Actions/actions.js';
+import HomeForm from '../components/HomeForm.jsx'
+import { setSceneActionCreator, getRestaurantsActionCreator } from '../actions/actions.js';
 import {useDispatch, useSelector} from 'react-redux';
 
 const HomeScene = () => {
@@ -9,8 +9,8 @@ const HomeScene = () => {
     const dispatch = useDispatch();
     const handleSubmit = (e) => {
         e.preventDefault();
-        const location = document.getElementById('locationinput').textContent;
-        const category = document.getElementById('categoryinput').textContent;
+        const location = document.getElementById('locationinput').value;
+        const category = document.getElementById('categoryinput').value;
         //const category = document.getElementById('categoryinput').options[selectedIndex].text
         dispatch(getRestaurantsActionCreator({term: category, location}));
         dispatch(setSceneActionCreator('feed'));

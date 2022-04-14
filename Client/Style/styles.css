@@ -53,6 +53,7 @@ table {
 body {
   min-height: 100%;
   background: url(https://awol.junkee.com/wp-content/uploads/2019/11/30624445_2031384813783830_665928700650323968_n-copy.jpg);
+  background-size: cover;
   background-position: center;
 }
 
@@ -94,7 +95,7 @@ html {
   width: 50%;
   border: 5px solid red;
 } */
-.login-wrapper {
+.login-wrapper, main {
   background-color: rgba(0,0,0, 0.8);
   border: 1px solid black;
   padding: 20px;
@@ -104,7 +105,6 @@ form {
   text-align: center;
   margin: auto;
   padding: 20px;
-  margin-bottom: 30px;
 }
 
 input {
@@ -126,20 +126,18 @@ button{
   font-size: 16px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 4px 8px #7fff00;
+  box-shadow: 0 0 2px 5px RGBA(127, 255, 0, 1);
   font-family: 'Bungee';
+  box-sizing: border-box;
 }
 
 button:active {
-  margin-left: auto 5px;
-  margin-top: 20px;
-  margin-bottom: 0px;
   border-radius: 8px;
-  box-shadow: 1px 1px #7fff00;
+  box-shadow: inset 0 0 5px 8px RGBA(127, 255, 0, 1);
 }
 
 h1 {
@@ -157,7 +155,7 @@ h2 {
   color: white;
 }
 
-p {
+p, label {
   color: white;
 }
 
