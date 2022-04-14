@@ -15,9 +15,9 @@ export const getRestaurantsActionCreator = body => async dispatch => {
   });
 };
 
-//action creator that will send the restaurant user wants to add to favorites to the reducer
+//making a 
 export const addToFavActionCreator = () => async (dispatch, getState) => {
-  //const favorite = useSelector(store => store.restaurants.restaurantList[0])
+  // const favorite = useSelector(store => store.restaurants.restaurantList[0])
   const favorite = await getState().restaurants.restaurantList[0];
   dispatch({
     type: types.ADD_TO_FAVS,
