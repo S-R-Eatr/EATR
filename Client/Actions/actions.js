@@ -1,8 +1,9 @@
 import axios from 'axios';
-import * as types from '../Constants/actionTypes.js';
+import * as types from '../constants/actionTypes.js';
 import { useSelector} from 'react-redux';
 
 //think action creator (getRestaurantsActionCreator) returning a thunk function: (async (dispatch) =>)
+//action creator creates an axios get-request to get restaurants from yelp API --> dispatch to update restaurant list
 export const getRestaurantsActionCreator = body => async dispatch => {
   // FETCH API WITH AXIOS
   const restaurants = await axios.get('/restaurants', {
@@ -14,16 +15,18 @@ export const getRestaurantsActionCreator = body => async dispatch => {
   });
 };
 
-export const addToFavActionCreator = () => async (dispatch, getState) => {
-  const favorite = await getState().restaurants.restaurantList[0];
-  // FETCH API WITH AXIOS
-  // add favorite to database (not set up yet)
-  // const addFav = await axios.post(URL);
+//making a 
+export const addToFavActionCreator = () => (dispatch, getState) => {
+  const favorite = useSelector(store => store.restaurants.restaurantList[0])
+  // const favorite = await getState().restaurants.restaurantList[0];
   dispatch({
     type: types.ADD_TO_FAVS,
     // payload: addFav.data,
     payload: favorite
   });
+  // FETCH API WITH AXIOS
+  // add favorite to database (not set up yet)
+  // const addFav = await axios.post(URL);
 };
 
 //setUser and setFavList won't run if username and password is wrong

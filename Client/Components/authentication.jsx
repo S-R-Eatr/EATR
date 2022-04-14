@@ -1,6 +1,6 @@
 import React, { component, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getIsNewUser, setFavsActionCreator, setUser, setIsLoggedIn} from '../Actions/actions.js';
+import { getIsNewUser, setFavsActionCreator, setUser, setIsLoggedIn} from '../actions/actions.js';
 import axios from 'axios';
 
 
@@ -95,8 +95,8 @@ const Authentication = () => {
           <input type="password" name="password" id='loginpassword' required/>
         </label>
         <button id="signin" type="submit">Login</button>
+        <button className="switch" type="reset" onClick={loginSwapper}>Sign Up Instead</button>
       </form>
-      <button className="switch" onClick={loginSwapper}>Sign Up Instead</button>
     </div>
 
     <div id="signup-holder" style={{ display: isNewUser ? "contents" : "none" }}>

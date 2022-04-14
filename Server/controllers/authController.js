@@ -57,6 +57,7 @@ authController.verifyUser = async (req, res, next) => {
     }
   
     const user = await User.findOne({ username: username })
+    res.locals.userId = user.id;
     console.log(user)
     const err = {
       log: 'Express caught error in verifyUser controller. Username or password incorrect',

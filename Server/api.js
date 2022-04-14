@@ -3,7 +3,7 @@
 'use strict';
 
 const yelp = require('yelp-fusion');
-const client = yelp.client('xKtPwI4Rj7xRNlLYekgqpwlRmgtq0dUxBeYWDsbCTQhqUnqFSRluOURoDbvvXQ3G9kLWR7c3rmmNB92Ofr8cBgpy5mk4U2WdQIKWINQFGyXWG7anfSLSenMmWEFUYnYx');
+const client = yelp.client('3aDQPNXQIadamGnn1R6xLa85YzpbL_e_dSuSAZllNVG2iHlZJAS92o0j_wxRvubiBZEOhQ_AdhQE20aWcSLaV-XGJE-d46ExFa8vnsmbDe3oRJc7rYWTIQKNU1NXYnYx');
 
 
 // const apiSearch = client.search({

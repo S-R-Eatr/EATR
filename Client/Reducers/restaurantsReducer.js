@@ -1,4 +1,4 @@
-import * as types from '../Constants/actionTypes.js';
+import * as types from '../constants/actionTypes.js';
 
 const initState = {
   restaurantList: [],

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useState } from 'react';
-import { setSceneActionCreator, getRestaurantsActionCreator } from '../Actions/actions.js';
+import { setSceneActionCreator, getRestaurantsActionCreator } from '../actions/actions.js';
 
 const HomeForm = (props) => {
 

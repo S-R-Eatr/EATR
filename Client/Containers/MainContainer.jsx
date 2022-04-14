@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import { setSceneActionCreator, getRestaurantsActionCreator } from '../Actions/actions.js';
+import { setSceneActionCreator, getRestaurantsActionCreator } from '../actions/actions.js';
 
-import Header from '../Components/Header.jsx';
+import Header from '../components/Header.jsx';
 import HomeScene from './HomeScene.jsx';
 import FeedScene from './FeedScene.jsx';
 import FavoritesScene from './FavoritesScene.jsx'

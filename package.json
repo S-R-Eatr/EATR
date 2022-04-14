@@ -10,10 +10,13 @@
     "build": "webpack",
     "dev": "nodemon server/server.js & webpack serve",
     "start": "nodemon server/server.js",
-    "test": "test"
+    "test": "jest"
   },
+
   "devDependencies": {
     "@babel/core": "^7.17.8",
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
+    "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@emotion/react": "^11.9.0",
@@ -21,6 +24,9 @@
     "@mui/icons-material": "^5.6.1",
     "@mui/material": "^5.6.0",
     "@mui/system": "^5.6.0",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.4",
     "babel-loader": "^8.2.4",
     "css-loader": "^6.7.1",
@@ -35,6 +41,10 @@
     "webpack-dev-server": "^4.8.0"
   },
   "dependencies": {
+    "@babel/plugin-transform-async-to-generator": "^7.1.0",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
@@ -44,8 +54,8 @@
     "mongoose": "^6.2.10",
     "node-fetch": "^3.2.3",
     "nodemon": "^2.0.15",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
     "react-redux": "^7.2.8",
     "react-router-dom": "^6.3.0",
     "redux": "^4.1.2",
