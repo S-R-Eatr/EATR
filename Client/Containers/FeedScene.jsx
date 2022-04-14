@@ -14,11 +14,9 @@ const FeedScene = () => {
     if (e.target.id === 'like') {
       //dispatch action to add to favorites
       dispatch(addToFavActionCreator());
-      //dispatch aciton to get next restaurant
-      dispatch(getNextActionCreator());
-    } else {
-      dispatch(getNextActionCreator());
-    }
+    } 
+    
+    dispatch(getNextActionCreator());
   }
 
     return (

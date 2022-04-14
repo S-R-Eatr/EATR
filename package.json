@@ -12,10 +12,10 @@
     "start": "nodemon server/server.js",
     "test": "jest"
   },
+
   "devDependencies": {
-  },
-  "dependencies": {
     "@babel/core": "^7.17.8",
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
@@ -24,6 +24,9 @@
     "@mui/icons-material": "^5.6.1",
     "@mui/material": "^5.6.0",
     "@mui/system": "^5.6.0",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.4",
     "babel-loader": "^8.2.4",
     "css-loader": "^6.7.1",
@@ -35,7 +38,9 @@
     "webpack": "^5.71.0",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.8.0",
+    "webpack-dev-server": "^4.8.0"
+  },
+  "dependencies": {
     "@babel/plugin-transform-async-to-generator": "^7.1.0",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^12.1.2",
