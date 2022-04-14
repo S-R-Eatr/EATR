@@ -28,7 +28,7 @@ const RestaurantCard = (props) => {
           </section>
           <section className="business-info">
             <p>Price: {business.price}</p>
-            <p>{business.hours.start}</p>
+            <p>{(!business.hours) ? '' : business.hours.start}</p>
           </section>
           <section className="location-info">Location: {formattedAddress}</section>
           <section className="reviews">WE NEED TO GET REVIEWS!</section>

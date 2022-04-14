@@ -12,7 +12,6 @@
     "start": "nodemon server/server.js",
     "test": "jest"
   },
-
   "devDependencies": {
     "@babel/core": "^7.17.8",
     "@babel/plugin-transform-modules-commonjs": "^7.17.9",
@@ -61,6 +60,7 @@
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
+    "supertest": "^6.2.2",
     "uuid": "^8.3.2",
     "yelp-fusion": "^3.0.0"
   }

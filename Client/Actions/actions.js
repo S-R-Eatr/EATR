@@ -16,9 +16,9 @@ export const getRestaurantsActionCreator = body => async dispatch => {
 };
 
 //making a 
-export const addToFavActionCreator = () => (dispatch, getState) => {
-  const favorite = useSelector(store => store.restaurants.restaurantList[0])
-  // const favorite = await getState().restaurants.restaurantList[0];
+export const addToFavActionCreator = () => async (dispatch, getState) => {
+  // const favorite = useSelector(store => store.restaurants.restaurantList[0])
+  const favorite = await getState().restaurants.restaurantList[0];
   dispatch({
     type: types.ADD_TO_FAVS,
     // payload: addFav.data,
