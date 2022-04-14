@@ -126,7 +126,6 @@ describe('restaurantsReducer Tests', () => {
     });
   });
 
-  
   describe('GET_RESTAURANTS', () => {
     const action = {
       type: 'GET_RESTAURANTS',
